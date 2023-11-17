@@ -20,6 +20,17 @@ namespace RFID_Daily_Time_Record
         private void Employees_Load(object sender, EventArgs e)
         {
 
+            void GetMusic()
+            {
+                conn = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:/Users/maryj/OneDrive/Documents/indiv.mdb");
+                dt = new DataTable();
+                adapter = new OleDbDataAdapter("SELECT *FROM music", conn);
+                conn.Open();
+                adapter.Fill(dt);
+                dgwMusic.DataSource = dt;
+                conn.Close();
+
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
